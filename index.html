@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Private Notes - MRIS Private Notes</title>
+<meta name="description" content="Private Notes - Write, save and organize your private notes. Safe, fast and 100% private.">
+<style>
+  *{box-sizing:border-box}
+  body{font-family:sans-serif;background:#0f172a;color:#fff;text-align:center;padding:30px 15px;margin:0}
+  .card{background:#1e293b;max-width:460px;margin:0 auto;padding:28px 22px;border-radius:22px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+  .logo{font-size:48px}
+  h1{margin:10px 0 5px;font-size:26px}
+  .sub{color:#94a3b8;font-size:14px;margin:0}
+  .badge{background:#22c55e;color:#000;padding:6px 14px;border-radius:20px;font-weight:bold;font-size:13px;display:inline-block;margin-top:14px}
+  .desc{color:#cbd5e1;font-size:14px;line-height:1.6;margin:16px 0}
+  #changelog{background:#0f172a;padding:14px;border-radius:12px;text-align:left;font-size:13px;white-space:pre-line;line-height:1.6}
+  .btn{display:block;background:#22c55e;color:#000;text-decoration:none;padding:14px;border-radius:12px;font-weight:bold;margin-top:18px;font-size:16px}
+  .btn2{display:block;background:#334155;color:#fff;text-decoration:none;padding:12px;border-radius:12px;margin-top:10px;font-size:14px}
+  .features{text-align:left;font-size:13px;color:#cbd5e1;line-height:1.8;margin-top:18px}
+  .features b{color:#fff}
+  .footer{margin-top:22px;font-size:13px;line-height:2}
+  .footer a{color:#94a3b8;text-decoration:none}
+  .footer a:hover{color:#fff}
+  .copy{font-size:12px;color:#64748b;margin-top:12px}
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="logo">📝</div>
+    <h1>Private Notes</h1>
+    <p class="sub">by MRIS LLC</p>
+
+    <span class="badge" id="version">Checking for updates...</span>
+
+    <p class="desc">Write, save and organize your private notes. Safe, fast and 100% private. Your notes stay only on your device.</p>
+
+    <div id="changelog">Loading update info...</div>
+
+    <a id="downloadBtn" class="btn" href="#">⬇ Download / Update Now</a>
+    <a class="btn2" href="https://github.com/mrisllc/mris.private.notes.page">⭐ View on GitHub</a>
+
+    <div class="features">
+      <b>✨ Why Private Notes?</b><br>
+      ✅ No Login Required<br>
+      ✅ No Ads, No Tracking<br>
+      ✅ Your Notes Stay On Your Device<br>
+      ✅ Fast & Simple Notes<br>
+      ✅ One-Tap In-App Update
+    </div>
+
+    <div class="footer">
+      <a href="privacy-policy.html">Privacy Policy</a> • 
+      <a href="terms-of-service.html">Terms of Service</a><br>
+      <a href="disclaimer.html">Disclaimer</a> • 
+      <a href="user-agreement.html">User Agreement</a><br>
+      <a href="mailto:contact.mrisllc@gmail.com">Contact Us</a>
+    </div>
+
+    <p class="copy">© 2026 MRIS LLC. All Rights Reserved.<br>Last Updated: <span id="updatedAt">-</span></p>
+  </div>
+
+<script>
+  fetch('version.json?t=' + Date.now())
+    .then(r => r.json())
+    .then(data => {
+      document.getElementById('version').innerText = 'Latest Version ' + data.versionName + ' (Code: ' + data.versionCode + ')';
+      document.getElementById('changelog').innerText = "✨ What's New:\n" + data.changelog;
+      document.getElementById('updatedAt').innerText = data.updatedAt || '27 Nov 2026';
+      document.getElementById('downloadBtn').href = data.apkUrl;
+    })
+    .catch(e => {
+      document.getElementById('version').innerText = 'Version info not available';
+      document.getElementById('changelog').innerText = 'Please check version.json file.';
+    });
+</script>
+
+</body>
+</html>
