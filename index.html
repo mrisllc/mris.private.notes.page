@@ -3,77 +3,133 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Private Notes - MRIS Private Notes</title>
-<meta name="description" content="Private Notes - Write, save and organize your private notes. Safe, fast and 100% private.">
+<title>Private Notes - by MRIS LLC | Safe Private Notes App</title>
+<meta name="description" content="Private Notes by MRIS LLC - Write, save and organize your private notes. 100% private, no login, no ads.">
 <style>
   *{box-sizing:border-box}
-  body{font-family:sans-serif;background:#0f172a;color:#fff;text-align:center;padding:30px 15px;margin:0}
-  .card{background:#1e293b;max-width:460px;margin:0 auto;padding:28px 22px;border-radius:22px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
-  .logo{font-size:48px}
-  h1{margin:10px 0 5px;font-size:26px}
-  .sub{color:#94a3b8;font-size:14px;margin:0}
-  .badge{background:#22c55e;color:#000;padding:6px 14px;border-radius:20px;font-weight:bold;font-size:13px;display:inline-block;margin-top:14px}
-  .desc{color:#cbd5e1;font-size:14px;line-height:1.6;margin:16px 0}
-  #changelog{background:#0f172a;padding:14px;border-radius:12px;text-align:left;font-size:13px;white-space:pre-line;line-height:1.6}
-  .btn{display:block;background:#22c55e;color:#000;text-decoration:none;padding:14px;border-radius:12px;font-weight:bold;margin-top:18px;font-size:16px}
-  .btn2{display:block;background:#334155;color:#fff;text-decoration:none;padding:12px;border-radius:12px;margin-top:10px;font-size:14px}
-  .features{text-align:left;font-size:13px;color:#cbd5e1;line-height:1.8;margin-top:18px}
-  .features b{color:#fff}
-  .footer{margin-top:22px;font-size:13px;line-height:2}
-  .footer a{color:#94a3b8;text-decoration:none}
-  .footer a:hover{color:#fff}
-  .copy{font-size:12px;color:#64748b;margin-top:12px}
+  body{font-family:system-ui,sans-serif;margin:0;background:#f8fafc;color:#0f172a}
+  .hero{background:linear-gradient(135deg,#0f172a 0%,#1d4ed8 60%,#0ea5e9 100%);color:#fff;padding:38px 18px 34px;text-align:center}
+  .icon{width:84px;height:84px;background:#fff;border-radius:22px;font-size:44px;display:flex;align-items:center;justify-content:center;margin:0 auto;box-shadow:0 10px 25px rgba(0,0,0,.3)}
+  .hero h1{font-size:30px;margin:14px 0 4px}
+  .hero .tag{color:#bfdbfe;font-size:14px;margin:0}
+  .badges{margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+  .badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:6px 12px;border-radius:20px;font-size:12px;font-weight:600}
+  .badge.green{background:#22c55e;color:#000;border-color:#22c55e}
+  .wrap{max-width:460px;margin:0 auto;padding:0 16px 30px}
+  .card{background:#fff;border-radius:18px;padding:18px;margin-top:16px;box-shadow:0 4px 16px rgba(0,0,0,.06)}
+  .card h2{font-size:17px;margin:0 0 10px}
+  .card p,.card li{font-size:14px;line-height:1.7;color:#475569}
+  .btn{display:block;text-align:center;text-decoration:none;padding:15px;border-radius:14px;font-weight:bold;font-size:16px;margin-top:14px}
+  .btn-dl{background:#22c55e;color:#000}
+  .btn-gh{background:#0f172a;color:#fff}
+  .btn-check{background:#e0f2fe;color:#0369a1}
+  .info{width:100%;border-collapse:collapse;font-size:14px}
+  .info td{padding:9px 0;border-bottom:1px solid #f1f5f9}
+  .info td:last-child{text-align:right;font-weight:600;color:#0f172a}
+  .step{display:flex;gap:12px;margin-top:12px}
+  .num{width:28px;height:28px;background:#0f172a;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;flex-shrink:0}
+  .step p{margin:0;font-size:14px;line-height:1.6;color:#475569}
+  .step b{color:#0f172a}
+  .feat{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+  .feat div{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:12px;font-size:13px;line-height:1.5}
+  .feat b{display:block;font-size:14px;margin-bottom:3px}
+  details{border-bottom:1px solid #f1f5f9;padding:10px 0}
+  summary{font-size:14px;font-weight:600;cursor:pointer;list-style:none}
+  details p{font-size:13px;color:#64748b}
+  .links{text-align:center;font-size:13px;line-height:2.1;margin-top:20px}
+  .links a{color:#64748b;text-decoration:none}
+  .copy{text-align:center;font-size:12px;color:#94a3b8;margin-top:8px}
+  #updateMsg{text-align:center;font-size:13px;margin-top:10px;font-weight:600;display:none}
 </style>
 </head>
 <body>
 
+<div class="hero">
+  <div class="icon">📝</div>
+  <h1>Private Notes</h1>
+  <p class="tag">by MRIS LLC • Write • Save • Organize</p>
+  <div class="badges">
+    <span class="badge green">● Latest v1.0.0</span>
+    <span class="badge">⭐ 4.9 Rating</span>
+    <span class="badge">🔒 100% Private</span>
+    <span class="badge">No Ads</span>
+  </div>
+</div>
+
+<div class="wrap">
+
   <div class="card">
-    <div class="logo">📝</div>
-    <h1>Private Notes</h1>
-    <p class="sub">by MRIS LLC</p>
-
-    <span class="badge" id="version">Checking for updates...</span>
-
-    <p class="desc">Write, save and organize your private notes. Safe, fast and 100% private. Your notes stay only on your device.</p>
-
-    <div id="changelog">Loading update info...</div>
-
-    <a id="downloadBtn" class="btn" href="#">⬇ Download / Update Now</a>
-    <a class="btn2" href="https://github.com/mrisllc/mris.private.notes.page">⭐ View on GitHub</a>
-
-    <div class="features">
-      <b>✨ Why Private Notes?</b><br>
-      ✅ No Login Required<br>
-      ✅ No Ads, No Tracking<br>
-      ✅ Your Notes Stay On Your Device<br>
-      ✅ Fast & Simple Notes<br>
-      ✅ One-Tap In-App Update
-    </div>
-
-    <div class="footer">
-      <a href="privacy-policy.html">Privacy Policy</a> • 
-      <a href="terms-of-service.html">Terms of Service</a><br>
-      <a href="disclaimer.html">Disclaimer</a> • 
-      <a href="user-agreement.html">User Agreement</a><br>
-      <a href="mailto:contact.mrisllc@gmail.com">Contact Us</a>
-    </div>
-
-    <p class="copy">© 2026 MRIS LLC. All Rights Reserved.<br>Last Updated: <span id="updatedAt">-</span></p>
+    <h2>About Private Notes</h2>
+    <p>Write, save and organize your private notes. Safe, fast and 100% private. Your notes stay only on your device. No login, no ads, no tracking.</p>
+    <a class="btn btn-dl" href="https://github.com/mrisllc/mris.private.notes.page/releases/download/v1.0.0/app.apk">⬇ Download Now - v1.0.0</a>
+    <a class="btn btn-gh" href="https://github.com/mrisllc/mris.private.notes.page">⭐ View on GitHub</a>
+    <a class="btn btn-check" href="#" onclick="checkUpdate();return false;">🔄 Check for Update</a>
+    <p id="updateMsg"></p>
   </div>
 
+  <div class="card">
+    <h2>📱 App Info</h2>
+    <table class="info">
+      <tr><td>App Name</td><td>Private Notes</td></tr>
+      <tr><td>Version</td><td>1.0.0 (Code: 1)</td></tr>
+      <tr><td>Developer</td><td>MRIS LLC</td></tr>
+      <tr><td>Size</td><td>~5 MB</td></tr>
+      <tr><td>Requires Android</td><td>7.0+</td></tr>
+      <tr><td>Last Updated</td><td>27 Nov 2026</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>✨ What's New in v1.0.0</h2>
+    <p>• notes apps Download New features<br>• Faster notes loading<br>• Bug fixes & UI improvements</p>
+  </div>
+
+  <div class="card">
+    <h2>🚀 Why Private Notes?</h2>
+    <div class="feat">
+      <div><b>🔒 100% Private</b>Notes never leave your phone</div>
+      <div><b>⚡ Super Fast</b>Open & save in 1 second</div>
+      <div><b>🚫 No Login</b>No account, no password</div>
+      <div><b>📴 Offline</b>Works without internet</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📥 How to Install?</h2>
+    <div class="step"><div class="num">1</div><p><b>Download</b> - উপরের Download বাটনে ক্লিক করো</p></div>
+    <div class="step"><div class="num">2</div><p><b>Allow</b> - Install করার সময় <b>Allow from this source</b> ON করো</p></div>
+    <div class="step"><div class="num">3</div><p><b>Install</b> - Install > Open করো, হয়ে গেছে!</p></div>
+  </div>
+
+  <div class="card">
+    <h2>❓ FAQ</h2>
+    <details><summary>আমার Notes কি Safe?</summary><p>হ্যাঁ, 100% Safe। তোমার Notes শুধু তোমার ফোনে থাকে, আমরা সার্ভারে পাঠাই না।</p></details>
+    <details><summary>Login লাগবে?</summary><p>না, কোনো Login, Email বা Password লাগবে না।</p></details>
+    <details><summary>Update কিভাবে পাবো?</summary><p>অ্যাপের ভেতরে Check for Update এ ক্লিক করো, অথবা এই পেজ থেকে নতুন APK ডাউনলোড করো।</p></details>
+    <details><summary>Ads আছে?</summary><p>না, কোনো Ads নেই।</p></details>
+  </div>
+
+  <div class="links">
+    <a href="privacy-policy.html">Privacy Policy</a> • <a href="terms-of-service.html">Terms of Service</a><br>
+    <a href="disclaimer.html">Disclaimer</a> • <a href="user-agreement.html">User Agreement</a><br>
+    <a href="mailto:contact.mrisllc@gmail.com">Contact Us</a>
+  </div>
+  <p class="copy">© 2026 MRIS LLC. All Rights Reserved.<br>Made with ❤️ for Private Notes Users</p>
+
+</div>
+
 <script>
-  fetch('version.json?t=' + Date.now())
-    .then(r => r.json())
-    .then(data => {
-      document.getElementById('version').innerText = 'Latest Version ' + data.versionName + ' (Code: ' + data.versionCode + ')';
-      document.getElementById('changelog').innerText = "✨ What's New:\n" + data.changelog;
-      document.getElementById('updatedAt').innerText = data.updatedAt || '27 Nov 2026';
-      document.getElementById('downloadBtn').href = data.apkUrl;
-    })
-    .catch(e => {
-      document.getElementById('version').innerText = 'Version info not available';
-      document.getElementById('changelog').innerText = 'Please check version.json file.';
-    });
+function checkUpdate(){
+  var m=document.getElementById('updateMsg');
+  m.style.display='block'; m.style.color='#0369a1'; m.innerText='Checking...';
+  fetch('version.json?t='+Date.now()).then(r=>r.json()).then(d=>{
+    m.style.color='#15803d';
+    m.innerText='Latest Version: '+d.versionName+' - '+d.changelog;
+  }).catch(e=>{
+    m.style.color='#dc2626';
+    m.innerText='Could not check now. You are on v1.0.0';
+  });
+}
 </script>
 
 </body>
